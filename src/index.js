@@ -8,6 +8,7 @@ import rateLimit from "express-rate-limit";
 import connectDB from "../Db/connect.js";
 import authRoutes from "./routes/auth.routes.js";
 import storeRoutes from "./routes/store.routes.js";
+import errorHandler from "./middleware/errorHandler.js";
 
 
 
@@ -37,6 +38,8 @@ app.use(morgan("dev"));
 app.get("/", (_req, res) => res.json({ message: "POS backend up" }));
 app.use("/auth", authRoutes);
 app.use("/stores", storeRoutes);
+
+app.use(errorHandler);
 
 async function boot() {
   await connectDB(process.env.MONGODB_URL);
