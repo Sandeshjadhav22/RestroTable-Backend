@@ -11,6 +11,8 @@ import storeRoutes from "./routes/store.routes.js";
 import errorHandler from "./middleware/errorHandler.js";
 import sectionRoutes from "./routes/section.routes.js";
 import tableRoutes from "./routes/table.routes.js";
+import settingsRoutes from "./routes/settings.routes.js";
+import menuRoutes from "./routes/menu.routes.js";
 
 
 
@@ -38,10 +40,12 @@ app.use(
 app.use(morgan("dev"));
 
 app.get("/", (_req, res) => res.json({ message: "POS backend up" }));
+app.use("/", menuRoutes)
 app.use("/auth", authRoutes);
 app.use("/stores", storeRoutes);
 app.use("/sections", sectionRoutes);
 app.use("/tables", tableRoutes);
+app.use("/settings", settingsRoutes);
 
 app.use(errorHandler);
 
