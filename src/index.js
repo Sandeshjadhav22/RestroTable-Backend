@@ -17,6 +17,7 @@ import tableRoutes from "./routes/table.routes.js";
 import settingsRoutes from "./routes/settings.routes.js";
 import menuRoutes from "./routes/menu.routes.js";
 import orderRoutes from "./routes/order.routes.js";
+import analyticsRoutes from "./routes/analytics.routes.js";
 
 // Error handler
 import errorHandler from "./middleware/errorHandler.js";
@@ -62,7 +63,8 @@ app.use("/sections", sectionRoutes);
 app.use("/tables", tableRoutes);
 app.use("/settings", settingsRoutes);
 app.use("/", menuRoutes);  
-app.use("/", orderRoutes);  
+app.use("/", orderRoutes); 
+app.use("/", analyticsRoutes); 
 
 // Error handler
 app.use(errorHandler);
