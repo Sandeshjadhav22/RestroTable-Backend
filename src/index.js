@@ -38,7 +38,7 @@ const limiter = rateLimit({
 // CORS
 const allowedOrigins = process.env.CORS_ORIGIN
   ? process.env.CORS_ORIGIN.split(",")
-  : ["http://localhost:3000", "https://your-frontend.com"];
+  : ["http://localhost:3000", "https://restrotable.vercel.app"];
 
 // Core middleware
 app.use(helmet());
